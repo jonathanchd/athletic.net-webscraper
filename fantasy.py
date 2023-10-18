@@ -10,7 +10,11 @@ drafts = assignDrafts()
 IDS = loadAthletes()
 
 #authorization
-gc = pygsheets.authorize(service_file = "C:/Users/Jonathan/Desktop/FANTASY CROSS/fantasy-cross-c10158e8e0e9.json")
+serviceFile = ""
+with open("json.txt", "r") as file:
+    for line in file:
+        serviceFile = line
+gc = pygsheets.authorize(service_file = serviceFile)
 
 sh = gc.open("FANTASY")
 
